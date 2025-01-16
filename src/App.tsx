@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Steps, Button, Modal, Form, Input } from 'antd';
-import type { StepsProps } from 'antd';
+import type { StepProps } from 'antd';
 import DataSourceStep from './pages/DataSourceStep';
 import TableDetailStep from './pages/TableDetailStep';
 import DataPreviewStep from './pages/DataPreviewStep';
 import ConfirmationStep from './pages/ConfirmationStep';
 import ExecutionResultStep from './pages/ExecutionResultStep';
 
-const steps: StepsProps['items'] = [
+interface StepItem extends StepProps {
+  content: React.ReactNode;
+}
+
+const steps: StepItem[] = [
   {
     title: '数据源',
     content: <DataSourceStep />,
